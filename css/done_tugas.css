@@ -1,0 +1,266 @@
+/* --- RESET & GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+/* --- HEADER SECTION --- */
+.header {
+    background-color: #131b2e;
+    color: white;
+    padding: 20px 20px 60px 20px;
+}
+
+.nav-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.back-link:hover {
+    opacity: 0.8;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* --- MAIN CONTAINER --- */
+.container {
+    padding: 0 20px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 500px;
+    align-self: center;
+}
+
+/* --- CARD STYLES --- */
+.card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+/* --- INFO TUGAS --- */
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.meta-row i {
+    width: 16px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+.desc-box {
+    margin-top: 15px;
+    background-color: #f9fafb;
+    border: 1px solid #f3f4f6;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.desc-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.desc-text {
+    font-size: 14px;
+    color: #1f2937;
+    line-height: 1.5;
+}
+
+/* Status: Selesai (Hijau) */
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #4b5563;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 15px;
+}
+
+.status-pill.done {
+    background-color: #ecfdf5;
+    color: #10b981;
+    border: 1px solid #d1fae5;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* --- VIEW FOTO --- */
+.photo-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.photo-section-title i {
+    background-color: #131b2e;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-label {
+    font-size: 13px;
+    color: #4b5563;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.photo-box {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #f9fafb;
+}
+
+.photo-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background-color: #374151;
+    color: white;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    z-index: 2;
+}
+
+/* --- CATATAN --- */
+.notes-text {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 80px;
+}
+
+/* --- SUCCESS BANNER --- */
+.success-card {
+    background-color: #009665;
+    color: white;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 150, 101, 0.2);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.success-icon-circle {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto;
+    font-size: 20px;
+}
+
+.success-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.success-subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .photo-box {
+        height: 180px;
+    }
+}

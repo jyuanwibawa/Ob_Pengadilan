@@ -60,33 +60,89 @@ function handleFile(input, previewId, contentId) {
 }
 
 // Fungsi untuk menyelesaikan tugas
+// Di dalam fungsi selesaikanTugas() di submit_tugas.js
 function selesaikanTugas() {
-    const fileBefore = document.getElementById('input-before').value;
-    const fileAfter = document.getElementById('input-after').value;
+    const fileBefore = document.getElementById('input-before');
+    const fileAfter = document.getElementById('input-after');
     const notes = document.getElementById('taskNotes').value;
 
-    if (!fileBefore || !fileAfter) {
+    if (!fileBefore.files.length || !fileAfter.files.length) {
         alert("Harap lengkapi dokumentasi foto (Sebelum & Sesudah)!");
         return;
     }
 
     if (confirm("Apakah Anda yakin data sudah benar dan ingin menyelesaikan tugas ini?")) {
-        // Simulasi pengiriman data ke server
         const submitBtn = document.querySelector('.btn-success');
         const originalText = submitBtn.innerHTML;
         
         submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Mengirim...';
         submitBtn.disabled = true;
+
+        // Simpan data tugas dan foto ke sessionStorage
+        const taskData = JSON.parse(sessionStorage.getItem('currentTask') || '{}');
         
-        setTimeout(() => {
-            // Hapus data tugas dari sessionStorage
-            sessionStorage.removeItem('currentTask');
+        // Konversi file ke base64
+        const reader1 = new FileReader();
+        const reader2 = new FileReader();
+        
+        reader1.onload = function(e1) {
+            taskData.photoBefore = e1.target.result;
             
-            alert("Tugas Berhasil Diselesaikan! \nData terkirim ke server.");
+            reader2.onload = function(e2) {
+                taskData.photoAfter = e2.target.result;
+                taskData.notes = notes;
+                taskData.completedAt = new Date().toISOString();
+                
+                // Simpan data yang sudah diupdate
+                sessionStorage.setItem('currentTask', JSON.stringify(taskData));
+                
+                // Redirect ke halaman selesai
+                setTimeout(() => {
+                    window.location.href = 'done_tugas.html';
+                }, 1000);
+            };
             
-            // Redirect ke dashboard
-            window.location.href = 'dashboard.html';
-        }, 2000);
+            reader2.readAsDataURL(fileAfter.files[0]);
+        };
+        
+        reader1.readAsDataURL(fileBefore.files[0]);
+    }
+}
+
+// Fungsi untuk menampilkan preview gambar
+function handleFile(input, previewId, contentId) {
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        
+        // Validasi ukuran file (max 10MB)
+        if (file.size > 10 * 1024 * 1024) {
+            alert('Ukuran file terlalu besar. Maksimal 10MB.');
+            input.value = '';
+            return;
+        }
+        
+        // Validasi tipe file
+        if (!file.type.match('image.*')) {
+            alert('File harus berupa gambar (PNG, JPG, JPEG).');
+            input.value = '';
+            return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.getElementById(previewId);
+            const content = document.getElementById(contentId);
+            
+            if (img) {
+                img.src = e.target.result;
+                img.style.display = 'block';
+            }
+            
+            if (content) {
+                content.style.display = 'none';
+            }
+        }
+        reader.readAsDataURL(file);
     }
 }
 

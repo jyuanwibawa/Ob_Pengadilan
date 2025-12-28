@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Selesai - CleanCourt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/done_tugas.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-row">
+            <a href="dashboard.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Kembali
+            </a>
+        </div>
+        <h1 class="page-title">Detail Tugas</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title" id="taskTitle">Ruang Meeting A</h2>
+            
+            <div class="meta-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <span id="taskLocation">R-301 • Lantai 3</span>
+            </div>
+            
+            <div class="meta-row">
+                <i class="fa-regular fa-clock"></i>
+                <span id="taskTime">Jadwal: 08:00</span>
+            </div>
+
+            <div class="desc-box">
+                <span class="desc-label">Deskripsi Pekerjaan:</span>
+                <p class="desc-text" id="taskDesc">Bersihkan meja, kursi, lantai, dan buang sampah</p>
+            </div>
+
+            <div class="status-row">
+                <span>Status:</span>
+                <div class="status-pill done">
+                    <i class="fa-solid fa-check"></i> Selesai
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="photo-section-title">
+                <i class="fa-solid fa-camera"></i> Dokumentasi Foto
+            </div>
+
+            <div class="photo-label">
+                <i class="fa-regular fa-image"></i> Foto Sebelum Dibersihkan
+            </div>
+            <div class="photo-box">
+                <img id="photoBefore" class="photo-img" src="" alt="Sebelum">
+                <span class="photo-badge">Sebelum</span>
+            </div>
+
+            <div class="photo-label" style="margin-top: 20px;">
+                <i class="fa-regular fa-image"></i> Foto Sesudah Dibersihkan
+            </div>
+            <div class="photo-box">
+                <img id="photoAfter" class="photo-img" src="" alt="Sesudah">
+                <span class="photo-badge">Sesudah</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title" style="font-size: 14px; margin-bottom: 10px;">Catatan Tambahan</h2>
+            <div class="notes-text" id="taskNotes">
+                Tulis catatan tentang kondisi ruangan, kendala yang dihadapi, atau informasi penting lainnya...
+            </div>
+        </div>
+
+        <div class="success-card">
+            <div class="success-icon-circle">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="success-title">
+                Tugas Telah Diselesaikan! 🎉
+            </div>
+            <div class="success-subtitle" id="completionTime">
+                Diselesaikan pada <span id="time">01:42</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/done_tugas.js"></script>
+</body>
+</html>
