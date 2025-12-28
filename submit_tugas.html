@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Tugas - CleanCourt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/submit_tugas.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-row">
+            <a href="detail_tugas.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Kembali
+            </a>
+        </div>
+        <h1 class="page-title">Submit Tugas</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title" id="taskTitle">Toilet Pria</h2>
+            
+            <div class="meta-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <span id="taskLocation">T-3A • Lantai 3</span>
+            </div>
+            
+            <div class="meta-row">
+                <i class="fa-regular fa-clock"></i>
+                <span id="taskTime">Jadwal: 09:00</span>
+            </div>
+
+            <div class="desc-box">
+                <span class="desc-label">Deskripsi Pekerjaan:</span>
+                <p class="desc-text" id="taskDesc">Bersihkan wastafel, toilet, lantai, dan isi ulang tissue</p>
+            </div>
+
+            <div class="status-row">
+                <span>Status:</span>
+                <div class="status-pill working">
+                    <span class="status-dot blue"></span> Sedang Dikerjakan
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">
+                <i class="fa-solid fa-camera"></i> Dokumentasi Foto
+            </h2>
+
+            <div class="upload-section-label">
+                <i class="fa-regular fa-image"></i> Foto Sebelum Dibersihkan
+            </div>
+            <div class="upload-box" onclick="triggerUpload('input-before', 'preview-before')">
+                <div id="content-before" class="upload-content">
+                    <div class="upload-icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                    <div class="upload-text">Tap untuk unggah foto</div>
+                    <div class="upload-subtext">PNG, JPG hingga 10MB</div>
+                </div>
+                <img id="preview-before" class="preview-img" src="" alt="Preview">
+                <input type="file" id="input-before" hidden accept="image/*" onchange="handleFile(this, 'preview-before', 'content-before')">
+            </div>
+
+            <div class="upload-section-label">
+                <i class="fa-regular fa-image"></i> Foto Sesudah Dibersihkan
+            </div>
+            <div class="upload-box" onclick="triggerUpload('input-after', 'preview-after')">
+                <div id="content-after" class="upload-content">
+                    <div class="upload-icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                    <div class="upload-text">Tap untuk unggah foto</div>
+                    <div class="upload-subtext">PNG, JPG hingga 10MB</div>
+                </div>
+                <img id="preview-after" class="preview-img" src="" alt="Preview">
+                <input type="file" id="input-after" hidden accept="image/*" onchange="handleFile(this, 'preview-after', 'content-after')">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Catatan Tambahan</h2>
+            <textarea class="notes-area" id="taskNotes" placeholder="Tulis catatan tentang kondisi ruangan, kendala yang dihadapi, atau informasi penting lainnya..."></textarea>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-success" onclick="selesaikanTugas()">
+                <i class="fa-solid fa-check"></i> Selesaikan Tugas
+            </button>
+            <button class="btn btn-outline" onclick="window.history.back()">
+                Batalkan
+            </button>
+        </div>
+    </div>
+
+    <script src="js/submit_tugas.js"></script>
+</body>
+</html>

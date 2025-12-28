@@ -1,0 +1,301 @@
+/* --- RESET & GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px; 
+}
+
+/* --- HEADER SECTION --- */
+.header {
+    background-color: #131b2e;
+    color: white;
+    padding: 20px 20px 60px 20px;
+}
+
+.nav-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.back-link:hover {
+    opacity: 0.8;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* --- MAIN CONTAINER --- */
+.container {
+    padding: 0 20px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 500px;
+    align-self: center;
+}
+
+/* --- CARD STYLES --- */
+.card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-title i {
+    background-color: #131b2e;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- INFO TUGAS --- */
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.desc-box {
+    margin-top: 15px;
+    background-color: #f9fafb;
+    border: 1px solid #f3f4f6;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.desc-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.desc-text {
+    font-size: 14px;
+    color: #1f2937;
+}
+
+/* Status: Sedang Dikerjakan (Biru) */
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #4b5563;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 15px;
+}
+
+.status-pill.working {
+    background-color: #e0f2fe; 
+    color: #0284c7; 
+    border: 1px solid #bae6fd;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-dot.blue {
+    width: 8px;
+    height: 8px;
+    background-color: #0284c7;
+    border-radius: 50%;
+}
+
+/* --- UPLOAD FOTO --- */
+.upload-section-label {
+    font-size: 13px;
+    color: #4b5563;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.upload-box {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.upload-box:hover {
+    border-color: #cbd5e1;
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.upload-icon {
+    font-size: 24px;
+    color: #64748b;
+    margin-bottom: 10px;
+    border: 2px solid #cbd5e1;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.upload-text {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+}
+
+.upload-subtext {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none; 
+}
+
+/* --- CATATAN --- */
+.notes-area {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 13px;
+    resize: none;
+    height: 100px;
+    outline: none;
+    color: #1f2937;
+}
+
+.notes-area::placeholder {
+    color: #9ca3af;
+}
+
+.notes-area:focus {
+    border-color: #131b2e;
+}
+
+/* --- BUTTONS --- */
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s;
+}
+
+.btn:active {
+    opacity: 0.8;
+}
+
+.btn-success {
+    background-color: #008855; 
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 136, 85, 0.2);
+}
+
+.btn-outline {
+    background-color: white;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.3s ease-out;
+}

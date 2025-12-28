@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Fungsi untuk memulai proses scan
+// Fungsi untuk memulai proses scan
 function startScan() {
     const button = document.getElementById('scanButton');
     const originalHTML = button.innerHTML;
@@ -20,20 +21,49 @@ function startScan() {
     button.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Membuka Kamera...';
     button.disabled = true;
 
-    // Simulasi proses scan (bisa diganti dengan implementasi asli)
-    setTimeout(() => {
-        // Tampilkan pesan sukses
-        alert('Barcode berhasil dipindai!\nMengalihkan ke halaman pemindaian...');
+    // Coba buka kamera
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ 
+            video: { facingMode: 'environment' } // Gunakan kamera belakang
+        })
+        .then(function(stream) {
+            // Kamera berhasil dibuka
+            console.log('Kamera berhasil dibuka');
+            
+            // Stop stream untuk saat ini (simulasi)
+            stream.getTracks().forEach(track => track.stop());
+            
+            // Tampilkan pesan sukses
+            alert('Kamera berhasil dibuka!\nBarcode berhasil dipindai.');
+            
+            // Update status tugas menjadi 'Dikerjakan'
+            updateTaskStatus('Dikerjakan');
+            
+            // Redirect ke halaman submit_tugas.html
+            setTimeout(() => {
+                window.location.href = 'submit_tugas.html';
+            }, 500);
+        })
+        .catch(function(error) {
+            console.error('Error membuka kamera:', error);
+            
+            // Jika gagal membuka kamera, tampilkan pesan error
+            alert('Tidak dapat membuka kamera. Pastikan Anda telah memberikan izin kamera.');
+            
+            // Reset tombol
+            button.classList.remove('loading');
+            button.innerHTML = originalHTML;
+            button.disabled = false;
+        });
+    } else {
+        // Browser tidak mendukung getUserMedia
+        alert('Browser Anda tidak mendukung akses kamera.');
         
         // Reset tombol
         button.classList.remove('loading');
         button.innerHTML = originalHTML;
         button.disabled = false;
-        
-        // Update status tugas menjadi 'Dikerjakan'
-        updateTaskStatus('Dikerjakan');
-        
-    }, 2000);
+    }
 }
 
 // Fungsi untuk mengupdate status tugas
