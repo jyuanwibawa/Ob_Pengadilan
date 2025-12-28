@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Tugas - CleanCourt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/detail_tugas.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-row">
+            <a href="dashboard.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Kembali
+            </a>
+        </div>
+        <h1 class="page-title">Detail Tugas</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2 class="task-title">Toilet Pria</h2>
+            
+            <div class="meta-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>T-3A • Lantai 3</span>
+            </div>
+            
+            <div class="meta-row">
+                <i class="fa-regular fa-clock"></i>
+                <span>Jadwal: 09:00</span>
+            </div>
+
+            <div class="desc-box">
+                <span class="desc-label">Deskripsi Pekerjaan:</span>
+                <p class="desc-text">Bersihkan wastafel, toilet, lantai, dan isi ulang tissue</p>
+            </div>
+
+            <hr class="divider">
+
+            <div class="status-row">
+                <span>Status:</span>
+                <div class="status-pill">
+                    <span class="status-dot"></span> Menunggu
+                </div>
+            </div>
+        </div>
+
+        <div class="card scan-card">
+            <div class="scan-icon-box">
+                <i class="fa-solid fa-expand"></i>
+            </div>
+            <div class="scan-content">
+                <h3>Scan Barcode Diperlukan</h3>
+                <p>Scan barcode di dinding ruangan sebelum memulai pekerjaan untuk verifikasi lokasi.</p>
+            </div>
+        </div>
+
+        <button class="btn-action" id="scanButton">
+            <i class="fa-solid fa-expand"></i> Scan Barcode & Mulai Pekerjaan
+        </button>
+    </div>
+
+    <script src="js/detail_tugas.js"></script>
+</body>
+</html>

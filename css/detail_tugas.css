@@ -1,0 +1,245 @@
+/* --- RESET & GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER SECTION --- */
+.header {
+    background-color: #131b2e; /* Navy Gelap */
+    color: white;
+    padding: 20px 20px 60px 20px; /* Padding bawah besar untuk efek tumpuk */
+    position: relative;
+    z-index: 1;
+}
+
+.nav-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.back-link:hover {
+    opacity: 0.8;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* --- MAIN CONTAINER --- */
+.container {
+    padding: 0 20px 20px 20px;
+    margin-top: 10px; /* Menarik konten ke atas menutupi header */
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- CARD STYLES --- */
+.card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:active {
+    transform: translateY(2px);
+}
+
+/* Detail Header Info */
+.task-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.meta-row i {
+    width: 16px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+/* Description Box */
+.desc-box {
+    margin-top: 20px;
+    background-color: #f9fafb;
+    border: 1px solid #f3f4f6;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.desc-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.desc-text {
+    font-size: 14px;
+    color: #1f2937;
+    line-height: 1.5;
+}
+
+/* Divider & Status */
+.divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 20px 0;
+    border: none;
+}
+
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.status-pill {
+    background-color: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fcd34d;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #d97706;
+    border-radius: 50%;
+}
+
+/* --- SCAN INFO CARD (BLUE) --- */
+.scan-card {
+    background-color: #eff6ff; /* Biru sangat muda */
+    border: 1px solid #bfdbfe; /* Border biru muda */
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.scan-icon-box {
+    background-color: #0ea5e9; /* Biru terang */
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.scan-content h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.scan-content p {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.4;
+}
+
+/* --- ACTION BUTTON --- */
+.btn-action {
+    width: 100%;
+    background-color: #131b2e;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    margin-top: 10px;
+}
+
+.btn-action:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-action i {
+    font-size: 16px;
+}
+
+/* Loading state */
+.btn-action.loading {
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.btn-action.loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (min-width: 400px) {
+    .container {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+}

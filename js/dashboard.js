@@ -70,16 +70,38 @@ function animateTaskCards() {
 }
 
 // Fungsi untuk menangani klik pada task card
+// Fungsi untuk menangani klik pada task card
 function setupTaskCardClick() {
     const taskCards = document.querySelectorAll('.task-card');
+    
     taskCards.forEach(card => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', function() {
-            // Tambahkan logika ketika task card diklik
-            const taskTitle = this.querySelector('h3').textContent;
-            console.log(`Task "${taskTitle}" diklik`);
-            // Bisa ditambahkan modal atau navigasi ke halaman detail
-        });
+        // Cek jika card memiliki status 'Menunggu'
+        const statusElement = card.querySelector('.status-pill.pending');
+        if (statusElement) {
+            card.style.cursor = 'pointer';
+            
+            card.addEventListener('click', function() {
+                // Ambil data tugas
+                const taskTitle = this.querySelector('h3').textContent;
+                const taskLocation = this.querySelector('.task-meta').textContent;
+                const taskTime = this.querySelector('.time')?.textContent.replace('⏰ ', '') || '';
+                const taskDesc = this.querySelector('.task-desc').textContent;
+                
+                // Simpan data tugas ke sessionStorage
+                const taskData = {
+                    title: taskTitle,
+                    location: taskLocation,
+                    time: taskTime,
+                    desc: taskDesc,
+                    status: 'Menunggu'
+                };
+                
+                sessionStorage.setItem('currentTask', JSON.stringify(taskData));
+                
+                // Redirect ke halaman detail_tugas.html
+                window.location.href = 'detail_tugas.html';
+            });
+        }
     });
 }
 
