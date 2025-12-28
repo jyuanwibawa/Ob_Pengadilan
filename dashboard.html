@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCourt Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="user-info">
+                <h1><i class="fa-solid fa-sparkles" style="color: #fbbf24;"></i> CleanCourt</h1>
+                <p>Halo, <span id="username-display">Pengguna</span> 👋</p>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge-dot">2</span>
+                </button>
+                <button class="icon-btn" onclick="logout()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="status-cards-container">
+            <!-- Card Menunggu -->
+            <div class="status-card menunggu">
+                <div class="status-info">
+                    <span class="status-count">4</span>
+                    <span class="status-title">Menunggu</span>
+                </div>
+            </div>
+
+            <!-- Card Dikerjakan -->
+            <div class="status-card dikerjakan">
+                <div class="status-info">
+                    <span class="status-count">0</span>
+                    <span class="status-title">Dikerjakan</span>
+                </div>
+            </div>
+
+            <!-- Card Selesai -->
+            <div class="status-card selesai">
+                <div class="status-info">
+                    <span class="status-count">1</span>
+                    <span class="status-title">Selesai</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-box">
+            <div class="progress-header">
+                <span>Progress Hari Ini</span>
+                <span><i class="fa-solid fa-arrow-trend-up"></i> 20%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-header">
+            <h2 class="section-title">Daftar Tugas Hari Ini</h2>
+            <span class="task-count">5 tugas</span>
+        </div>
+
+        <div class="task-card">
+            <div class="card-body">
+                <div class="icon-box green">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <div class="task-info">
+                    <h3>Ruang Meeting A</h3>
+                    <p class="task-meta">R-301 • Lantai 3</p>
+                    <p class="task-desc">Bersihkan meja, kursi, lantai, dan buang sampah.</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="time"><i class="fa-regular fa-clock"></i> 08:00</div>
+                <span class="status-pill done"><i class="fa-solid fa-check"></i> Selesai</span>
+            </div>
+        </div>
+
+        <div class="task-card">
+            <div class="card-body">
+                <div class="icon-box yellow">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+                <div class="task-info">
+                    <h3>Toilet Pria</h3>
+                    <p class="task-meta">T-3A • Lantai 3</p>
+                    <p class="task-desc">Bersihkan wastafel, toilet, lantai, dan isi ulang tissue.</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="time"><i class="fa-regular fa-clock"></i> 09:00</div>
+                <span class="status-pill pending"><i class="fa-solid fa-circle-notch"></i> Menunggu</span>
+            </div>
+        </div>
+
+        <div class="task-card">
+            <div class="badge-urgent">
+                <i class="fa-solid fa-clock"></i> Urgent
+            </div>
+            <div class="card-body">
+                <div class="icon-box yellow">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+                <div class="task-info">
+                    <h3>Kantor Direktur</h3>
+                    <p class="task-meta">R-401 • Lantai 4</p>
+                    <p class="task-desc">Bersihkan seluruh ruangan dengan teliti, rapikan dokumen.</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="time"><i class="fa-regular fa-clock"></i> 07:30</div>
+                <span class="status-pill pending"><i class="fa-solid fa-circle-notch"></i> Menunggu</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
